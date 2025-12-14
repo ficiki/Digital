@@ -1,0 +1,138 @@
+/* ========================================
+   LAYOUT STYLES
+   ======================================== */
+
+/* Main Layout Container */
+.layout-container {
+  display: flex;
+  min-height: 100vh;
+  background-color: #f9fafb; /* bg-gray-50 */
+}
+
+/* Main Content Area (beside sidebar) */
+.layout-main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  margin-left: 256px; /* Sidebar width: 256px (w-64) */
+  min-height: 100vh;
+}
+
+/* Page Content (scrollable area) */
+.layout-content {
+  flex: 1;
+  padding: 24px; /* p-6 = 1.5rem = 24px */
+  overflow-y: auto;
+  background-color: #f9fafb;
+}
+
+/* Smooth scrolling */
+.layout-content {
+  scroll-behavior: smooth;
+}
+
+/* Custom scrollbar for content area */
+.layout-content::-webkit-scrollbar {
+  width: 8px;
+}
+
+.layout-content::-webkit-scrollbar-track {
+  background: #f1f5f9;
+}
+
+.layout-content::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 4px;
+}
+
+.layout-content::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}
+
+/* ========================================
+   RESPONSIVE LAYOUT
+   ======================================== */
+
+/* Tablet */
+@media (max-width: 1024px) {
+  .layout-main {
+    margin-left: 256px; /* Keep full sidebar on tablet */
+  }
+  
+  .layout-content {
+    padding: 20px;
+  }
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .layout-main {
+    margin-left: 0; /* Remove margin, sidebar will overlay */
+  }
+  
+  .layout-content {
+    padding: 16px;
+  }
+}
+
+/* Mobile Landscape */
+@media (max-width: 640px) {
+  .layout-content {
+    padding: 12px;
+  }
+}
+
+/* ========================================
+   LAYOUT WITH COLLAPSED SIDEBAR (Mobile)
+   ======================================== */
+
+@media (max-width: 768px) {
+  /* When sidebar is collapsed/hidden */
+  .layout-container.sidebar-collapsed .layout-main {
+    margin-left: 0;
+  }
+  
+  /* When sidebar is open (overlay mode) */
+  .layout-container.sidebar-open .sidebar {
+    transform: translateX(0);
+    box-shadow: 2px 0 8px rgba(0, 0, 0, 0.15);
+  }
+}
+
+/* ========================================
+   LOADING & EMPTY STATES
+   ======================================== */
+
+.layout-content.loading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 400px;
+}
+
+.layout-content.empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 400px;
+  color: #64748b;
+}
+
+/* ========================================
+   PRINT STYLES
+   ======================================== */
+
+@media print {
+  .sidebar {
+    display: none;
+  }
+  
+  .layout-main {
+    margin-left: 0;
+  }
+  
+  .layout-content {
+    padding: 0;
+  }
+}

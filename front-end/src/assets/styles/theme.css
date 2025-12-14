@@ -1,0 +1,23 @@
+/* styles/theme.css */
+:root {
+  /* Primary Colors */
+  --primary-blue: #3B82F6;
+  --primary-purple: #8B5CF6;
+  --primary-dark: #1F2937;
+  
+  /* Status Colors */
+  --status-pending: #F59E0B;
+  --status-approved: #10B981;
+  --status-rejected: #EF4444;
+  --status-draft: #6B7280;
+  
+  /* Background Colors */
+  --bg-sidebar: #1E293B;
+  --bg-header: #FFFFFF;
+  --bg-card: #FFFFFF;
+  
+  /* Text Colors */
+  --text-primary: #1F2937;
+  --text-secondary: #6B7280;
+  --text-light: #FFFFFF;
+}
